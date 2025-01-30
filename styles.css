@@ -1,0 +1,451 @@
+/* styles.css */
+:root {
+    --primary-dark: #1a1a1a;
+    --secondary-dark: #2d2d2d;
+    --text-dark: #ffffff;
+    --accent-dark: #4a90e2;
+    --accent-hover: #357abd;
+    --success-color: #4CAF50;
+    --error-color: #ff4444;
+    --gradient-dark: linear-gradient(145deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+    --card-border: 1px solid rgba(255, 255, 255, 0.05);
+    --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Enhanced Login Screen */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: radial-gradient(circle at center, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+    border: var(--card-border);
+    animation: fadeIn 0.5s ease;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: var(--text-dark);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Enhanced Input Styling */
+input[type="password"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-dark);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent-dark);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced Button Styling */
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent-dark);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#loginBtn {
+    background: linear-gradient(45deg, var(--accent-dark), var(--accent-hover));
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#loginBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#loginBtn:hover::before {
+    left: 100%;
+}
+
+.error-message {
+    color: var(--error-color);
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(255, 68, 68, 0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.error-message:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Main Content Layout */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+}
+
+.main-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: var(--accent-dark);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Enhanced Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.card {
+    background: var(--gradient-dark);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--box-shadow);
+    border: var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card i {
+    font-size: 40px;
+    color: var(--accent-dark);
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.card .status {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background: rgba(255, 68, 68, 0.1);
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.card .status.available {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.card-buttons button {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.view-btn {
+    background: var(--accent-dark);
+}
+
+.download-btn {
+    background: transparent;
+    border: 2px solid var(--accent-dark);
+    color: var(--accent-dark);
+}
+
+.download-btn:hover:not(:disabled) {
+    background: var(--accent-dark);
+    color: white;
+}
+
+/* Update Notice */
+.update-notice {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(74, 144, 226, 0.1);
+    padding: 15px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    animation: slideIn 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.update-notice i {
+    color: var(--accent-dark);
+}
+
+/* Notes Counter */
+.notes-counter {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: var(--card-border);
+    width: 200px;
+    box-shadow: var(--box-shadow);
+}
+
+.notes-counter h3 {
+    color: var(--accent-dark);
+    margin-bottom: 15px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.notes-counter ul {
+    list-style: none;
+}
+
+.notes-counter li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notes-counter li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    .login-box h2 {
+        font-size: 24px;
+    }
+
+    .main-container {
+        padding-top: 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .update-notice {
+        bottom: 20px;
+        top: auto;
+        right: 20px;
+        left: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .notes-counter {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-buttons {
+        flex-direction: column;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add these styles to your existing CSS */
+.custom-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-dark);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prompt-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.prompt-icon {
+    font-size: 32px;
+    color: var(--accent-dark);
+}
+
+.loading-spinner {
+    margin-top: 10px;
+    font-size: 24px;
+    color: var(--accent-dark);
+}
+
+.custom-prompt p {
+    font-size: 16px;
+    color: var(--text-dark);
+}
