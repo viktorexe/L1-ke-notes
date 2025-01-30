@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfFiles = {
         'CAM': 'cam.pdf',
         'EES': 'ees.pdf',
-        'ES': 'ec.pdf',
+        'EC': 'ec.pdf',
         'PSUC': 'psuc.pdf'
     };
 
