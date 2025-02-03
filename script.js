@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Login Handling
     loginBtn.addEventListener('click', () => {
-        if (passwordInput.value === '2007') {
+        if (passwordInput.value === 'vanshbhaigreat') {
             loginScreen.classList.add('hidden');
             mainContent.classList.remove('hidden');
             errorMessage.textContent = '';
